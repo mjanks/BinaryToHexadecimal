@@ -1,39 +1,50 @@
+/*
+ * This program performs binary to hexadecimal conversions
+ * Created by Michael Janks
+ * September 19, 2020
+ */
+
 package conversions;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class BinaryHexadecimal {
 	
 	public String binToHex(String bin) {
 		String hex = "";
+		ArrayList<String> fourBitStrings = new ArrayList<String>();
+		BinaryDecimal bd = new BinaryDecimal();
 		
-		// Divide binary string into blocks of 4 bits each
+		fourBitStrings = createFourBitStrings(bin);
 		
-		// Convert each 4 bit binary string to dec value (already done)
-		
-		// Convert the dec value to hex value
-		
-		// Concatenate the string to create the hex value
-		
+		System.out.println("size: " + fourBitStrings.size());
+		for(int i=0; i < fourBitStrings.size(); i++) {
+			System.out.println(fourBitStrings.get(i));
+		}
 		
 		return hex;
 	}
 	
-	/************************************************************************************************************
-	 * 
-	 * getParts() from java2s.com  | © Demo Source and Support
-	 * http://www.java2s.com/Tutorials/Java/Algorithms_How_to/String/Split_a_string_at_every_n_th_character.htm
-	 *
-	 ***********************************************************************************************************/
+	public ArrayList<String> createFourBitStrings(String bin) {
+		ArrayList<String> strs = new ArrayList<String>();
+		int index = bin.length();
+		
+		while(index >= 0) {
+			if(index-4 < 0) {
+				strs.add(bin.substring(0, index));
+				index = -1;
+			} else {
+				strs.add(bin.substring(index -4, index));
+				index -= 4;
+			}
+		}
+		return strs;
+	}
 	
-	public ArrayList<String> getParts(String string, int partitionSize) {
-	    ArrayList<String> parts = new ArrayList<String>();
-	    int len = string.length();
-	    for (int i = 0; i < len; i += partitionSize) {
-	      parts.add(string.substring(i, Math.min(len, i + partitionSize)));
-	    }
-	    return parts;
-	  }
+	
+	
+	
+	
+	
 	
 }

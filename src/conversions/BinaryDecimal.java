@@ -1,9 +1,15 @@
+/*
+ * This program performs binary to hexadecimal conversions
+ * Created by Michael Janks
+ * September 19, 2020
+ */
+
 package conversions;
 
 public class BinaryDecimal {
 	
-	public int binToDec(String s) {
-		int total = 0;
+	public String binToDec(String s) {
+		String total = "";
 	
 		for(int i=0; i < s.length(); i++) {
 			if(s.charAt(i) == '1') {
