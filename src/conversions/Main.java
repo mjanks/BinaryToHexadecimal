@@ -22,7 +22,6 @@ public class Main {
 		System.out.println("Enter any other integer to quit");
 		System.out.print("Enter choice: ");
 		response = keyboard.nextInt();
-		System.out.println();
 	
 		while(response == 1 || response == 2 ) {
 			switch(response) {
@@ -37,18 +36,31 @@ public class Main {
 					System.out.println("The number in decimal is: " + bd.binToDec(bin));
 					System.out.print("Again (y/n)? ");
 					if(!keyboard.next().equals("y")) {
-						response = 2;
+						response =-1;
 						break;
 					}
+					System.out.println("Enter 1 to convert binary to decimal");
+					System.out.println("Enter 2 to convert binary to hexadecimal");
+					System.out.println("Enter any other integer to quit");
+					System.out.print("Enter choice: ");
+					response = keyboard.nextInt();
 					break;
 					
 			case 2:
 				System.out.print("Enter binary: ");
 				String bin2 = keyboard.next();
 				System.out.println("The number in hexadecimal is: " + bh.binToHex(bin2));
-				System.out.println();
+				System.out.print("Again (y/n)? ");
+				if(!keyboard.next().equals("y")) {
+					response =-1;
+					break;
+				}
+				System.out.println("Enter 1 to convert binary to decimal");
+				System.out.println("Enter 2 to convert binary to hexadecimal");
+				System.out.println("Enter any other integer to quit");
+				System.out.print("Enter choice: ");
+				response = keyboard.nextInt();
 				break;
-					
 			}
 		}
 		System.out.println("Program Terminated.");
